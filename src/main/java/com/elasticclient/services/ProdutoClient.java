@@ -1,5 +1,6 @@
 package com.elasticclient.services;
 
+import com.elasticclient.domain.Pessoa;
 import com.elasticclient.domain.Produto;
 import com.elasticclient.util.JsonParser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -29,13 +30,13 @@ public class ProdutoClient {
 
     }
 
-    public void insert(Produto produto){
+    public void insert(Pessoa pessoa){
         RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        HttpEntity<Produto> requestBody = new HttpEntity<>(produto, headers);
-       Produto result = restTemplate.postForObject(HOST+"/product/_doc", requestBody, Produto.class);
+        HttpEntity<Pessoa> requestBody = new HttpEntity<>(pessoa, headers);
+        Pessoa result = restTemplate.postForObject(HOST+"/cidade/pessoa", requestBody, Pessoa.class);
         System.out.println(result.toString());
 
     }
