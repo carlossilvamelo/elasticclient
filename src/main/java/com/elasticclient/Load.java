@@ -2,6 +2,7 @@ package com.elasticclient;
 
 import com.elasticclient.domain.Crime;
 import com.elasticclient.domain.Produto;
+import com.elasticclient.services.CrimeClient;
 import com.elasticclient.services.LoadCrime;
 import com.elasticclient.util.JsonParser;
 import jxl.Cell;
@@ -19,13 +20,15 @@ public class Load {
         try {
             Workbook workbook = Workbook.getWorkbook(new File("C:\\Users\\cmelo\\CARLOS\\workspace\\elasticclient\\src\\main\\resources\\crimesRS.xls"));
             Sheet sheet = workbook.getSheet(0);
-            Produto produto = null;
+            Crime crime = null;
             LoadCrime loadCrime = new LoadCrime();
+            CrimeClient crimeClient = new CrimeClient();
 
             List<Crime> crimeList = loadCrime.loadCrimes();
 
             for (Crime c: crimeList) {
-                System.out.println(JsonParser.crimeToJson(c));
+               // System.out.println(JsonParser.crimeToJson(c));
+                crimeClient.insert(c);
             }
 
 

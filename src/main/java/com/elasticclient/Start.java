@@ -29,7 +29,7 @@ public class Start {
         sender5.start();*/
 
         Crime crime;
-        for (int i=0;i<1; i++){
+        for (int i=0;i<2000; i++){
             crime = new Crime();
             crimeClient.insert(crime);
         }

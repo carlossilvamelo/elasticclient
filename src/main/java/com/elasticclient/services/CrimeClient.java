@@ -16,7 +16,7 @@ public class CrimeClient {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
         HttpEntity<Crime> requestBody = new HttpEntity<>(crime, headers);
-        Crime result = restTemplate.postForObject(HOST+"/cidade/crimes", requestBody, Crime.class);
+        Crime result = restTemplate.postForObject(HOST+"/crimes/crime", requestBody, Crime.class);
         System.out.println(result.toString());
 
     }

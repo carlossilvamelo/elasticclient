@@ -9,7 +9,7 @@ public class Sender extends Thread {
         CrimeClient crimeClient = new CrimeClient();
 
         Crime crime;
-        for (int i=0;i<2000; i++){
+        for (int i=0;i<1000; i++){
             crime = new Crime();
             crimeClient.insert(crime);
         }
